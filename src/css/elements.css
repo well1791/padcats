@@ -2,3 +2,8 @@ html {
   background: var(--color-main-bg);
   color: var(--color-text-high-1);
 }
+
+body {
+  max-width: var(--bp-container);
+  margin-inline: auto;
+}

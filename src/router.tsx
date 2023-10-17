@@ -1,19 +1,19 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom'
 
-import Root from '~/routes/index'
-// import Podcast from '~/routes/[podcastId]/index'
+import RootPage from '~/routes'
+import PodcastPage from '~/routes/[podcastId]/index'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
-    // children: [
-    //   {
-    //     path: ":podcastId",
-    //     element: <Podcast />,
-    //   },
-    // ],
+    element: <RootPage />,
+    children: [
+      {
+        path: ':podcastId',
+        element: <PodcastPage />,
+      },
+    ],
   },
-]);
+])
 
 export default router

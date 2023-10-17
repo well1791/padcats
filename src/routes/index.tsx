@@ -1,15 +1,17 @@
+import { useOutlet } from 'react-router-dom';
+
 import './index.css';
 import Layout from './layout';
-import Input from '~/ui/atom/input';
+import Podcasts from '~/ui/template/podcasts';
 
-function Root() {
+function RootPage() {
+  const outlet = useOutlet()
+
   return (
     <Layout>
-      <main>
-        <Input />
-      </main>
+      {outlet || <Podcasts data={{ podcasts: [] }} />}
     </Layout>
   );
 }
 
-export default Root;
+export default RootPage;

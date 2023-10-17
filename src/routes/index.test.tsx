@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 
-import Root from '.';
+import RootPage from '.';
 
 test('renders', () => {
-  render(<Root />);
+  render(<RootPage />);
   const linkElement = screen.getByText(/react/i);
   expect(linkElement).toBeInTheDocument();
 });

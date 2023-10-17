@@ -7,4 +7,7 @@
   --color-bg-high-1: rgba(255, 255, 255, 0.03);
   --color-bg-high-2: #1a1a1a;
   --color-accent-high-1: #5C67DE;
+
+  --bp-container: calc(1512 / 16 * 1rem);
+  --bp-content: calc(832 / 16 * 1rem);
 }
