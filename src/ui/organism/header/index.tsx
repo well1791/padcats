@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import st from './index.module.css'
+import * as st from './index.css'
 import { cx } from '~/utils'
 
 export type Props = {

@@ -1,12 +1,18 @@
 const { CracoAliasPlugin } = require('react-app-alias')
-
-const options = {}
+const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin')
 
 module.exports = {
   plugins: [
     {
       plugin: CracoAliasPlugin,
-      options
+      options: {},
     }
-  ]
+  ],
+  webpack: {
+    plugins: {
+      add: [
+        new VanillaExtractPlugin(),
+      ],
+    },
+  },
 }

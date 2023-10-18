@@ -1,9 +1,0 @@
-.container, .header {
-  max-width: var(--bp-content);
-  margin-inline: auto;
-}
-
-.footer {
-  position: fixed;
-  inset-block-end: 0;
-}

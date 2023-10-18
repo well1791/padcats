@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-import st from './layout.module.css'
+import * as st from './layout.css'
 import Header from '~/ui/organism/header'
 import Footer from '~/ui/organism/footer'
 
@@ -11,14 +11,11 @@ function Layout({ ...p }: Props) {
 
   return (
     <>
-      <Header
-        className={st.header}
-        showBackLink={Boolean(podcastId)}
-      />
+      <Header showBackLink={Boolean(podcastId)} />
       <main className={st.container}>
         {p.children}
       </main>
-      <Footer className={st.footer} />
+      <Footer />
     </>
   )
 }

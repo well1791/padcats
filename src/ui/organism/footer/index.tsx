@@ -1,6 +1,6 @@
 import { cx } from '~/utils'
 
-import st from './index.module.css'
+import * as st from './index.css'
 
 export type Props = {
   className?: string

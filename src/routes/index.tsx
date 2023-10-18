@@ -1,6 +1,5 @@
 import { useOutlet } from 'react-router-dom';
 
-import './index.css';
 import Layout from './layout';
 import Podcasts from '~/ui/template/podcasts';
 
