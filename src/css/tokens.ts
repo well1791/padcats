@@ -21,6 +21,9 @@ export const tokens = {
     container: 'calc(1512 / 16 * 1rem)',
     content: 'calc(832 / 16 * 1rem)',
   },
+  font: {
+    primary: 'Quicksand',
+  },
 } as const
 
 export default tokens
