@@ -7,16 +7,21 @@ export const container = style({
   alignItems: 'center',
   gap: '1rem',
 
-  width: '100%',
+  inlineSize: '100%',
+  blockSize: 'inherit',
   paddingInline: '1.25rem',
-  paddingBlock: '.94rem',
   backgroundColor: vars.color.tertiary.bg,
-  borderRadius: '15px',
+  borderRadius: 15,
+
+  ':focus-within': {
+    outline: 'solid thin',
+  },
 })
 
 export const input = style({
-  width: 'inherit',
+  inlineSize: 'inherit',
   backgroundColor: 'transparent',
+  outline: 'none',
 
   color: vars.color.tertiary.text,
   fontSize: '1rem',

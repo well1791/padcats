@@ -11,6 +11,6 @@ globalStyle('html', {
 })
 
 globalStyle('body', {
-  maxWidth: vars.bp.container,
+  maxInlineSize: vars.bp.container,
   marginInline: 'auto',
 })

@@ -6,7 +6,7 @@ import { container as footerContainer } from '~/ui/organism/footer/index.css'
 import { vars } from '~/css'
 
 const baseContainer: StyleRule = {
-  maxWidth: vars.bp.content,
+  maxInlineSize: vars.bp.content,
   marginInline: 'auto',
 }
 

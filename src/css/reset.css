@@ -1,12 +1,5 @@
 /* source: https://andy-bell.co.uk/a-more-modern-css-reset/ */
 
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* Prevent font size inflation */
 html {
   -moz-text-size-adjust: none;
@@ -45,7 +38,7 @@ h3, h4 {
 }
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
+a, a:visited, a:hover, a:active {
   text-decoration-skip-ink: auto;
   color: currentColor;
 }
@@ -60,7 +53,9 @@ picture {
 /* Inherit fonts for inputs and buttons */
 input, button,
 textarea, select {
-  all: unset;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
   font: inherit;
 }
 

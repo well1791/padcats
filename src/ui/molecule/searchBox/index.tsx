@@ -1,10 +1,10 @@
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 
 import * as st from './index.css'
 import Input from '~/ui/atom/input'
 
-type Props = {
+export type Props = {
   className?: string
   name?: string
   placeholder?: string

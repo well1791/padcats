@@ -1,24 +1,25 @@
-import { Link } from 'react-router-dom'
 import { CaretLeftIcon } from '@radix-ui/react-icons'
 
 import * as st from './index.css'
 import { cx } from '~/utils'
-import SearchBox from '~/ui/molecule/searchBox'
+import Action from '~/ui/atom/action'
+import SearchBox, { type Props as SearchBoxProps } from '~/ui/molecule/searchBox'
 
 export type Props = {
   className?: string
   showBackLink?: boolean
+  searchBoxProps?: SearchBoxProps
 }
 
 function Header(p: Props) {
   return (
     <header className={cx([st.container, p.className])}>
       {p.showBackLink && (
-        <Link to="/" className={st.backLink}>
-          <CaretLeftIcon height="1.25rem" width="1.25rem" />
-        </Link>
+        <Action to="/" className={st.backLink}>
+          <CaretLeftIcon width="1.9rem" height="1.9rem" aria-hidden />
+        </Action>
       )}
-      <SearchBox />
+      <SearchBox {...p.searchBoxProps} />
     </header>
   )
 }
