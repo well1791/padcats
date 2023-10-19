@@ -15,4 +15,13 @@ module.exports = {
       ],
     },
   },
+  jest: {
+    configure: (jestConfig) => {
+      jestConfig.transform = {
+        ...{ '\\.css\\.ts$': '@vanilla-extract/jest-transform' },
+        ...structuredClone(jestConfig.transform),
+      }
+      return jestConfig;
+    },
+  },
 }

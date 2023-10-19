@@ -16,7 +16,11 @@ function SearchBox(p: Props) {
   return (
     <label className={st.container}>
       <VisuallyHidden.Root>Type to search podcasts</VisuallyHidden.Root>
-      <MagnifyingGlassIcon height="1.25rem" width="1.25rem" aria-hidden />
+      <MagnifyingGlassIcon
+        height="1.25rem"
+        width="1.25rem"
+        aria-hidden="true"
+      />
       <Input
         autoFocus={p.autoFocus}
         className={st.input}

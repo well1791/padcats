@@ -15,8 +15,12 @@ function Header(p: Props) {
   return (
     <header className={cx([st.container, p.className])}>
       {p.showBackLink && (
-        <Action to="/" className={st.backLink}>
-          <CaretLeftIcon width="1.9rem" height="1.9rem" aria-hidden />
+        <Action
+          to="/"
+          className={st.backLink}
+          aria-label="go to the main page"
+        >
+          <CaretLeftIcon width="1.9rem" height="1.9rem" aria-hidden="true" />
         </Action>
       )}
       <SearchBox {...p.searchBoxProps} />

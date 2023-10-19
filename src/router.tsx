@@ -1,9 +1,11 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom'
+
 
 import RootPage from '~/routes'
 import PodcastPage from '~/routes/[podcastId]/index'
 
-const router = createBrowserRouter([
+const routes: Array<RouteObject> = [
   {
     path: '/',
     element: <RootPage />,
@@ -14,6 +16,12 @@ const router = createBrowserRouter([
       },
     ],
   },
-])
+]
 
-export default router
+function Router() {
+  return (
+    <RouterProvider router={createBrowserRouter(routes)} />
+  )
+}
+
+export default Router

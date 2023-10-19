@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 type Podcast = {
   id: string
 }
@@ -17,7 +15,6 @@ function Podcasts({ ...p }: Props) {
     <>
       <p>
         podcasts list
-        <Link to={'one'}> go to podcast one</Link>
       </p>
     </>
   )
