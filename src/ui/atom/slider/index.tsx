@@ -1,7 +1,7 @@
 import * as RadixSlider from '@radix-ui/react-slider';
 
 import * as st from './styles.css'
-import { cx } from '~/utils'
+import { cs } from '~/utils'
 
 export type Data = {
   max: number
@@ -18,7 +18,7 @@ export type Props = {
 function Slider({ data: d, ...p }: Props) {
   return (
     <RadixSlider.Root
-      className={cx(st.root, p.className)}
+      className={cs(st.root, p.className)}
       max={d.max}
       value={[d.value]}
       step={1}
@@ -28,6 +28,7 @@ function Slider({ data: d, ...p }: Props) {
       <RadixSlider.Track className={st.track}>
         <RadixSlider.Range className={st.range} />
       </RadixSlider.Track>
+      <RadixSlider.Thumb className={st.thumb} aria-label="" />
     </RadixSlider.Root>
   )
 }

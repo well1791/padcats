@@ -1,6 +1,6 @@
 import * as st from './styles.css'
 
-import { cx } from '~/utils'
+import { cs } from '~/utils'
 
 export type Data = {
   time: {
@@ -21,7 +21,7 @@ function TimeLabel({ data: d, ...p }: Props) {
   const { hours, minutes, seconds } = d.time
 
   return (
-    <span className={cx(st.container, p.className)}>
+    <span className={cs(st.container, p.className)}>
       {hours > 0 ?? `${formatUnit(hours)}:`}
       {`${formatUnit(minutes)}:${formatUnit(seconds)}`}
     </span>

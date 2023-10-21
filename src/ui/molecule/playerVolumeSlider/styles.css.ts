@@ -16,6 +16,6 @@ export const container = style({
 })
 
 export const slider = style({
-  vars: { [sliderWidth]: '75rem' },
+  vars: { [sliderWidth]: '70rem' },
   '@media': fromBpVars('xl', { [sliderWidth]: '100rem' }),
 })

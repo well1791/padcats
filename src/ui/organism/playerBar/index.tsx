@@ -1,4 +1,5 @@
 import * as st from './styles.css'
+import { cs } from '~/utils'
 import PlayerInfo from '~/ui/molecule/playerInfo'
 import PlayerControls from '~/ui/molecule/playerControls'
 import PlayerSeekSlider from '~/ui/molecule/playerSeekSlider'
@@ -9,6 +10,7 @@ import type { Props as SeekSliderProps } from '~/ui/molecule/playerSeekSlider'
 import type { Props as VolumeSliderProps } from '~/ui/molecule/playerVolumeSlider'
 
 export type Props = {
+  className?: string
   info: PlayerInfoProps
   controls: ControlsProps
   seekSlider: SeekSliderProps
@@ -17,8 +19,8 @@ export type Props = {
 
 function PlayerBar(p: Props) {
   return (
-    <div className={st.container}>
-      <PlayerInfo {...p.info} />
+    <div className={cs(st.container, p.className)}>
+      <PlayerInfo className={st.playerInfo} {...p.info} />
       <section className={st.playerParts} aria-label="media player controls">
         <PlayerControls {...p.controls} />
         <PlayerSeekSlider {...p.seekSlider} />

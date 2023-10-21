@@ -6,8 +6,9 @@ import { container as action } from '~/ui/atom/action/styles.css'
 import { container as header } from '~/ui/organism/header/styles.css'
 import { container as footer } from '~/ui/organism/footer/styles.css'
 import { vars } from '~/theme'
+import { cc } from '~/utils'
 
-const iconSize = createVar()
+const _iconSize = createVar()
 
 const baseContainer: StyleRule = {
   maxInlineSize: vars.size.prose,
@@ -15,22 +16,22 @@ const baseContainer: StyleRule = {
 }
 
 const iconSizing: StyleRule = {
-  vars: { [iconSize]: '24rem' },
+  vars: { [_iconSize]: '24rem' },
 
-  width: iconSize,
-  height: iconSize,
+  width: _iconSize,
+  height: _iconSize,
 }
 
 export const container = style(baseContainer)
 
-globalStyle(`.${header}`, baseContainer)
-globalStyle([
-  `.${header} .${action} > svg`,
-  `.${header} .${searchLabel} > svg`
-].join(', '), iconSizing)
+globalStyle(`${header}`, baseContainer)
+globalStyle(cc(
+  `${header} ${action} > svg`,
+  `${header} ${searchLabel} > svg`
+), iconSizing)
 
-globalStyle(`.${footer}`, {
+globalStyle(`${footer}`, {
   position: 'fixed',
   insetBlockEnd: 0,
 })
-globalStyle(`.${footer} .${action} > svg`, iconSizing)
+globalStyle(`${footer} ${action} > svg`, iconSizing)

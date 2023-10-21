@@ -3,13 +3,13 @@ import { createVar, style } from '@vanilla-extract/css'
 import { vars } from '~/theme'
 import { fromBp, fromBpVars } from '~/theme/utils'
 
-const playPauseBtnSize = createVar()
-const activeMarkSize = createVar()
+const _playPauseBtnSize = createVar()
+const _activeMarkSize = createVar()
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '15rem',
+  gap: '10rem',
 
   '@media': {
     [fromBp('xl')]: {
@@ -19,20 +19,20 @@ export const container = style({
 })
 
 export const playPauseBtn = style({
-  vars: { [playPauseBtnSize]: '40rem' },
+  vars: { [_playPauseBtnSize]: '40rem' },
 
   justifyContent: 'center',
 
-  width: playPauseBtnSize,
-  height: playPauseBtnSize,
+  width: _playPauseBtnSize,
+  height: _playPauseBtnSize,
   borderRadius: '50%',
   backgroundColor: vars.color.accent.bg,
 
-  '@media': fromBpVars('xl', { [playPauseBtnSize]: '50rem' }),
+  '@media': fromBpVars('xl', { [_playPauseBtnSize]: '50rem' }),
 })
 
 export const activableBtn = style({
-  vars: { [activeMarkSize]: '3rem' },
+  vars: { [_activeMarkSize]: '3rem' },
 
   position: 'relative',
 
@@ -44,8 +44,8 @@ export const activableBtn = style({
       top: 1,
       right: 1,
 
-      width: activeMarkSize,
-      height: activeMarkSize,
+      width: _activeMarkSize,
+      height: _activeMarkSize,
       borderRadius: '50%',
       backgroundColor: vars.color.primary.text,
     },

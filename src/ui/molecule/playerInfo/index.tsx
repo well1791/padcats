@@ -1,7 +1,7 @@
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
 import * as st from './styles.css'
-import { cx } from '~/utils'
+import { cs } from '~/utils'
 
 export type Data = {
   title: string
@@ -14,18 +14,19 @@ export type Data = {
 
 export type Props = {
   data: Data
+  className?: string
 }
 
 function PlayerInfo({ data: d, ...p }: Props) {
   return (
-    <article className={st.container}>
+    <article className={cs(st.container, p.className)}>
       <img className={st.thumbnail} src={d.img.src} alt={d.img.alt} />
       <div>
         <p className={st.title}>
           <VisuallyHidden>title: </VisuallyHidden>
           {d.title}
         </p>
-        <p className={cx(st.description, st.title)}>
+        <p className={cs(st.description, st.title)}>
           <VisuallyHidden>author: </VisuallyHidden>
           {d.author}
         </p>

@@ -6,3 +6,7 @@ export const container = style({
   inlineSize: '100%',
   backgroundColor: vars.color.tertiary.bg,
 })
+
+export const playerBar = style({
+  paddingInlineEnd: '30rem',
+})

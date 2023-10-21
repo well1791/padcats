@@ -16,6 +16,6 @@ export const remainingTime = style({
 })
 
 export const slider = style({
-  vars: { [sliderWidth]: '170rem' },
+  vars: { [sliderWidth]: '160rem' },
   '@media': fromBpVars('xl', { [sliderWidth]: '419rem' }),
 })

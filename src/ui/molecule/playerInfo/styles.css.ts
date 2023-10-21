@@ -3,24 +3,22 @@ import { style, createVar } from '@vanilla-extract/css'
 import { vars } from '~/theme'
 import { fromBpVars } from '~/theme/utils'
 
-const thumbnailSize = createVar()
+const _thumbnailSize = createVar()
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
   gap: '20rem',
-
-  inlineSize: '35%',
 })
 
 export const thumbnail = style({
-  vars: { [thumbnailSize]: '100rem' },
+  vars: { [_thumbnailSize]: '100rem' },
 
-  width: thumbnailSize,
-  height: thumbnailSize,
+  width: _thumbnailSize,
+  height: _thumbnailSize,
   backgroundColor: 'red',
 
-  '@media': fromBpVars('xl', { [thumbnailSize]: '110rem' }),
+  '@media': fromBpVars('xl', { [_thumbnailSize]: '110rem' }),
 })
 
 export const title = style({
