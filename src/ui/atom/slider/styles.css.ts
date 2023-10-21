@@ -16,8 +16,8 @@ export const root = style({
   display: 'flex',
   alignItems: 'center',
 
-  width: _sliderWidth,
-  height: '5rem',
+  inlineSize: _sliderWidth,
+  blockSize: '5rem',
 
   userSelect: 'none',
   touchAction: 'none',

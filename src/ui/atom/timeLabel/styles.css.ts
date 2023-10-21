@@ -12,5 +12,5 @@ export const container = style({
   },
   color: _colorVar,
   fontWeight: 500,
-  minInlineSize: '45rem',
+  minInlineSize: '50rem',
 })
