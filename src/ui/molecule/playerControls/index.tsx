@@ -7,7 +7,7 @@ import {
   LoopIcon,
 } from '@radix-ui/react-icons'
 
-import * as st from './index.css'
+import * as st from './styles.css'
 import Action from '~/ui/atom/action'
 
 export type Props = {
@@ -22,8 +22,6 @@ export type Props = {
 }
 
 function PlayerControls(p: Props) {
-  const iconSize = '24rem'
-
   return (
     <div className={st.container}>
       <Action
@@ -33,7 +31,7 @@ function PlayerControls(p: Props) {
         data-is-active={Boolean(p.isShuffling)}
         onClick={p.onShuffle}
       >
-        <ShuffleIcon width={iconSize} height={iconSize} aria-hidden="true" />
+        <ShuffleIcon aria-hidden="true" />
       </Action>
 
       <Action
@@ -41,7 +39,7 @@ function PlayerControls(p: Props) {
         aria-label="play previous track"
         onClick={p.onPrev}
       >
-        <TrackPreviousIcon width={iconSize} height={iconSize} aria-hidden="true" />
+        <TrackPreviousIcon aria-hidden="true" />
       </Action>
 
       <Action
@@ -51,9 +49,9 @@ function PlayerControls(p: Props) {
         onClick={p.onPlayPause}
       >
         {p.isPlaying ? (
-          <PauseIcon width={iconSize} height={iconSize} aria-hidden="true" />
+          <PauseIcon aria-hidden="true" />
         ) : (
-          <PlayIcon width={iconSize} height={iconSize} aria-hidden="true" />
+          <PlayIcon aria-hidden="true" />
         )}
       </Action>
 
@@ -62,7 +60,7 @@ function PlayerControls(p: Props) {
         aria-label="play next track"
         onClick={p.onNext}
       >
-        <TrackNextIcon width={iconSize} height={iconSize} aria-hidden="true" />
+        <TrackNextIcon aria-hidden="true" />
       </Action>
 
       <Action
@@ -72,7 +70,7 @@ function PlayerControls(p: Props) {
         data-is-active={Boolean(p.isLooping)}
         onClick={p.onRepeat}
       >
-        <LoopIcon width={iconSize} height={iconSize} aria-hidden="true" />
+        <LoopIcon aria-hidden="true" />
       </Action>
     </div>
   )

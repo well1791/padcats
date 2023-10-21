@@ -13,15 +13,11 @@ export type Props = {
 }
 
 function SearchBox(p: Props) {
-  const iconSize = '20rem'
+
   return (
     <label className={st.container}>
       <VisuallyHidden>Type to search podcasts</VisuallyHidden>
-      <MagnifyingGlassIcon
-        height={iconSize}
-        width={iconSize}
-        aria-hidden="true"
-      />
+      <MagnifyingGlassIcon aria-hidden="true" />
       <Input
         autoFocus={p.autoFocus}
         className={st.input}

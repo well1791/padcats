@@ -12,8 +12,6 @@ export type Props = {
 }
 
 function Header(p: Props) {
-  const iconSize = '24rem'
-
   return (
     <header className={cx(st.container, p.className)}>
       {p.showBackLink && (
@@ -22,7 +20,7 @@ function Header(p: Props) {
           className={st.backLink}
           aria-label="go to the main page"
         >
-          <CaretLeftIcon width={iconSize} height={iconSize} aria-hidden="true" />
+          <CaretLeftIcon aria-hidden="true" />
         </Action>
       )}
       <SearchBox {...p.searchBoxProps} />

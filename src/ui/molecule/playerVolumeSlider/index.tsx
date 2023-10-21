@@ -21,8 +21,6 @@ export type Props = {
 }
 
 function PlayerVolumeSlider({ data: d, ...p }: Props) {
-  const iconSize = '24rem'
-
   return (
     <div className={st.container}>
       <Action
@@ -31,13 +29,13 @@ function PlayerVolumeSlider({ data: d, ...p }: Props) {
         onClick={p.onVolumeMuteUnmute}
       >
         {d.volume < 1 ? (
-          <SpeakerOffIcon width={iconSize} height={iconSize} aria-hidden="true" />
+          <SpeakerOffIcon aria-hidden="true" />
         ): d.volume < 30 ? (
-          <SpeakerQuietIcon width={iconSize} height={iconSize} aria-hidden="true" />
+          <SpeakerQuietIcon aria-hidden="true" />
         ): d.volume < 70 ? (
-          <SpeakerModerateIcon width={iconSize} height={iconSize} aria-hidden="true" />
+          <SpeakerModerateIcon aria-hidden="true" />
         ) : (
-          <SpeakerLoudIcon width={iconSize} height={iconSize} aria-hidden="true" />
+          <SpeakerLoudIcon aria-hidden="true" />
         )}
       </Action>
 

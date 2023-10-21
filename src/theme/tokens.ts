@@ -25,6 +25,11 @@ export const tokens = {
     md: '1268rem',
     xl: '1512rem',
   },
+  _bp: {
+    sm: '1024px',
+    md: '1268px',
+    xl: '1512px',
+  },
   font: {
     primary: 'Quicksand',
   },

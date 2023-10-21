@@ -1,25 +1,39 @@
-import { style } from '@vanilla-extract/css'
+import { createVar, style } from '@vanilla-extract/css'
 
 import { vars } from '~/theme'
+import { fromBp, fromBpVars } from '~/theme/utils'
+
+const playPauseBtnSize = createVar()
+const activeMarkSize = createVar()
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '30rem',
+  gap: '15rem',
+
+  '@media': {
+    [fromBp('xl')]: {
+      gap: '30rem',
+    },
+  },
 })
 
 export const playPauseBtn = style({
-  display: 'flex',
-  alignItems: 'center',
+  vars: { [playPauseBtnSize]: '40rem' },
+
   justifyContent: 'center',
 
-  width: '50rem',
-  height: '50rem',
+  width: playPauseBtnSize,
+  height: playPauseBtnSize,
   borderRadius: '50%',
   backgroundColor: vars.color.accent.bg,
+
+  '@media': fromBpVars('xl', { [playPauseBtnSize]: '50rem' }),
 })
 
 export const activableBtn = style({
+  vars: { [activeMarkSize]: '3rem' },
+
   position: 'relative',
 
   selectors: {
@@ -30,8 +44,8 @@ export const activableBtn = style({
       top: 1,
       right: 1,
 
-      width: '3rem',
-      height: '3rem',
+      width: activeMarkSize,
+      height: activeMarkSize,
       borderRadius: '50%',
       backgroundColor: vars.color.primary.text,
     },
