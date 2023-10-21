@@ -8,9 +8,11 @@ globalStyle('html', {
   ].join(', '),
   color: vars.color.primary.text,
   fontFamily: vars.font.primary,
+  fontSize: '6.25%',
 })
 
 globalStyle('body', {
-  maxInlineSize: vars.bp.container,
+  maxInlineSize: vars.bp.xl,
   marginInline: 'auto',
+  fontSize: '16rem',
 })

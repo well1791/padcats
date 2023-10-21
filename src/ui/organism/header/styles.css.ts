@@ -1,15 +1,15 @@
 import { style } from '@vanilla-extract/css'
 
-import { vars } from '~/css'
+import { vars } from '~/theme'
 
 export const container = style({
   display: 'flex',
-  gap: '.94rem',
+  gap: '15rem',
   alignItems: 'center',
 
-  blockSize: '3.125rem',
-  paddingBlockStart: '1.88rem',
-  paddingBlockEnd: '1.25rem',
+  blockSize: '50rem',
+  paddingBlockStart: '30rem',
+  paddingBlockEnd: '20rem',
 })
 
 export const backLink = style({
@@ -17,8 +17,8 @@ export const backLink = style({
   alignItems: 'center',
   justifyContent: 'center',
 
-  minInlineSize: '3.125rem',
-  minBlockSize: '3.125rem',
+  minInlineSize: '50rem',
+  minBlockSize: '50rem',
   borderRadius: 15,
   backgroundColor: vars.color.tertiary.bg,
 })

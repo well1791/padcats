@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import './css';
+import './theme';
 import Router from './router';
 import reportWebVitals from './reportWebVitals';
 

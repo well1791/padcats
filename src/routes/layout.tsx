@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import * as st from './layout.css'
@@ -6,16 +7,58 @@ import Footer from '~/ui/organism/footer'
 
 type Props = React.PropsWithChildren<{}>
 
+const time = { hours: 0, minutes: 3, seconds: 43 }
+const podcastInfo = {
+  title: 'How to make your partner talk more',
+  author: 'Ken Adams',
+  img: { src: '', alt: '' }
+}
+
 function Layout({ ...p }: Props) {
+  const [isShuffling, setIsShuffling] = useState(false)
+  const [isLooping, setIsLooping] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [seekValue, setSeekValue] = useState(0)
+  const [[currentVol, mutedVol], setVolume] = useState([50, 50])
   const { podcastId } = useParams()
+
+  const handleSeekedValue = () => {}
 
   return (
     <>
       <Header showBackLink={Boolean(podcastId)} />
+
       <main className={st.container}>
         {p.children}
       </main>
-      <Footer />
+
+      <Footer
+        player={{
+          info: { data: podcastInfo },
+          controls: {
+            isPlaying,
+            isLooping,
+            isShuffling,
+            onShuffle: () => setIsShuffling(!isShuffling),
+            onPrev: () => {},
+            onPlayPause: () => setIsPlaying(!isPlaying),
+            onNext: () => {},
+            onRepeat: () => setIsLooping(!isLooping),
+          },
+          seekSlider: {
+            data: { seekValue, time },
+            onSeekChange: setSeekValue,
+            onSeekCommit: handleSeekedValue,
+          },
+          volumeSlider: {
+            data: { volume: currentVol },
+            onVolumeChange: (vol) => setVolume([vol, vol === 0 ? 5 : vol]),
+            onVolumeMuteUnmute: () => currentVol === 0
+              ? setVolume([mutedVol, mutedVol])
+              : setVolume([0, currentVol]),
+          },
+        }}
+      />
     </>
   )
 }

@@ -17,9 +17,13 @@ export const tokens = {
       text: 'white',
     },
   },
+  size: {
+    prose: '832rem',
+  },
   bp: {
-    container: 'calc(1512 / 16 * 1rem)',
-    content: 'calc(832 / 16 * 1rem)',
+    sm: '1024rem',
+    md: '1268rem',
+    xl: '1512rem',
   },
   font: {
     primary: 'Quicksand',

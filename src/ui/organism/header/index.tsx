@@ -1,6 +1,6 @@
 import { CaretLeftIcon } from '@radix-ui/react-icons'
 
-import * as st from './index.css'
+import * as st from './styles.css'
 import { cx } from '~/utils'
 import Action from '~/ui/atom/action'
 import SearchBox, { type Props as SearchBoxProps } from '~/ui/molecule/searchBox'
@@ -12,15 +12,17 @@ export type Props = {
 }
 
 function Header(p: Props) {
+  const iconSize = '24rem'
+
   return (
-    <header className={cx([st.container, p.className])}>
+    <header className={cx(st.container, p.className)}>
       {p.showBackLink && (
         <Action
           to="/"
           className={st.backLink}
           aria-label="go to the main page"
         >
-          <CaretLeftIcon width="1.9rem" height="1.9rem" aria-hidden="true" />
+          <CaretLeftIcon width={iconSize} height={iconSize} aria-hidden="true" />
         </Action>
       )}
       <SearchBox {...p.searchBoxProps} />

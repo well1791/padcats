@@ -1,15 +1,15 @@
 import { style } from '@vanilla-extract/css'
 
-import { vars } from '~/css'
+import { vars } from '~/theme'
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '1rem',
+  gap: '16rem',
 
   inlineSize: '100%',
   blockSize: 'inherit',
-  paddingInline: '1.25rem',
+  paddingInline: '24rem',
   backgroundColor: vars.color.tertiary.bg,
   borderRadius: 15,
 
@@ -24,6 +24,4 @@ export const input = style({
   outline: 'none',
 
   color: vars.color.tertiary.text,
-  fontSize: '1rem',
-  fontWeight: 400,
 })

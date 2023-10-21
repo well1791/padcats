@@ -1,7 +1,7 @@
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
-import * as st from './index.css'
+import * as st from './styles.css'
 import Input from '~/ui/atom/input'
 
 export type Props = {
@@ -13,12 +13,13 @@ export type Props = {
 }
 
 function SearchBox(p: Props) {
+  const iconSize = '20rem'
   return (
     <label className={st.container}>
-      <VisuallyHidden.Root>Type to search podcasts</VisuallyHidden.Root>
+      <VisuallyHidden>Type to search podcasts</VisuallyHidden>
       <MagnifyingGlassIcon
-        height="1.25rem"
-        width="1.25rem"
+        height={iconSize}
+        width={iconSize}
         aria-hidden="true"
       />
       <Input
