@@ -31,7 +31,7 @@ export const tokens = {
     xl: '1512px',
   },
   font: {
-    primary: 'Quicksand',
+    primary: '"Quicksand Book", sans-serif',
   },
 } as const
 
