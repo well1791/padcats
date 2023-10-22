@@ -1,10 +1,10 @@
-import { useMemo, useReducer } from 'react'
+import { useState } from 'react'
 import {
-  ColumnDef,
+  // ColumnDef,
   flexRender,
   getCoreRowModel,
-  getSortedRowModel,
-  SortingState,
+  // getSortedRowModel,
+  // SortingState,
   useReactTable,
   createColumnHelper,
 } from '@tanstack/react-table'
@@ -12,9 +12,12 @@ import {
 import * as st from './styles.css'
 import { cs } from '~/utils'
 import PlayerInfo from '~/ui/molecule/playerInfo'
+import PlayPauseBtn from '~/ui/atom/playPauseBtn'
+
+type PodcastId = string
 
 type Podcast = {
-  id: string
+  id: PodcastId
   trackNumber: number
   title: string
   author: string
@@ -27,47 +30,57 @@ type Podcast = {
 }
 
 export type Data = {
-  podcasts: Array<Podcast>
+  podcasts: Record<PodcastId, Podcast>
+  playingId?: PodcastId
 }
 
 export type Props = {
   data: Data
   className?: string
+  onPlayPause: (id: PodcastId) => void
 }
 
 const helper = createColumnHelper<Podcast>()
 
-const columns = [
-  helper.accessor('trackNumber', {
-    header: '',
-  }),
-  helper.accessor('author', {
-    header: 'Name',
-    cell: (info) => (
-      <PlayerInfo
-        className={st.infoRow}
-        data={{
-          title: 'asdsd',
-          author: 'lkjl',
-          img: {
-            src: 'dsj',
-            alt: ','
-          }
-        }}
-      />
-    ),
-  }),
-  helper.accessor('description', {
-    header: 'Description',
-  }),
-  helper.accessor('releasedAt', {
-    header: 'Released',
-  }),
-]
-
 function Podcasts({ data: d, ...p }: Props) {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const columns = [
+    helper.accessor('trackNumber', {
+      header: '',
+      cell: () => (
+        <PlayPauseBtn
+          isPlaying={isPlaying}
+          isHighlighted={isPlaying}
+          onPlayPause={() => setIsPlaying(!isPlaying)}
+        />
+      ),
+    }),
+    helper.accessor('author', {
+      header: 'Name',
+      cell: (info) => (
+        <PlayerInfo
+          className={st.playerInfo}
+          data={{
+            title: 'asdsd',
+            author: 'lkjl',
+            img: {
+              src: 'dsj',
+              alt: ','
+            }
+          }}
+        />
+      ),
+    }),
+    helper.accessor('description', {
+      header: 'Description',
+    }),
+    helper.accessor('releasedAt', {
+      header: 'Released',
+    }),
+  ]
+
   const table = useReactTable({
-    data: d.podcasts,
+    data: Object.values(d.podcasts),
     columns,
     getCoreRowModel: getCoreRowModel(),
   })

@@ -8,7 +8,8 @@ function RootPage() {
 
   return (
     <Layout>
-      {outlet || <Podcasts data={{ podcasts: [{
+      {outlet || <Podcasts data={{ podcasts: {
+        'asd': {
           id: 'asd',
           trackNumber: 0,
           title: 'How to start a podcast',
@@ -19,7 +20,10 @@ function RootPage() {
             src: '',
             alt: '',
           }
-      }] }} />}
+        },
+      }}}
+        onPlayPause={() => {}}
+      />}
     </Layout>
   );
 }

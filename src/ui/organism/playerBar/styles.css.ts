@@ -20,7 +20,7 @@ export const playerParts = style({
   justifyContent: 'flex-end',
   gap: fluidUnit('30rem', ['xl', '50rem']),
   flexGrow: 1,
-  maxInlineSize: 'calc(50% + 150rem)',
+  maxInlineSize: 'calc(50% + 125rem)',
 })
 
 export const playerSeeker = style({

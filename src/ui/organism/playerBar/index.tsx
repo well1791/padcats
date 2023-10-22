@@ -20,7 +20,11 @@ export type Props = {
 function PlayerBar(p: Props) {
   return (
     <div className={cs(st.container, p.className)}>
-      <PlayerInfo className={st.playerInfo} {...p.info} />
+      <PlayerInfo
+        {...p.info}
+        className={cs(st.playerInfo, p.info.className)}
+      />
+
       <section className={st.playerParts} aria-label="media player controls">
         <PlayerControls {...p.controls} />
         <PlayerSeekSlider

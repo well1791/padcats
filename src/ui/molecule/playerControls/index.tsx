@@ -1,8 +1,6 @@
 import {
   ShuffleIcon,
   TrackPreviousIcon,
-  PlayIcon,
-  PauseIcon,
   TrackNextIcon,
   LoopIcon,
 } from '@radix-ui/react-icons'
@@ -10,15 +8,15 @@ import {
 import * as st from './styles.css'
 import { cs } from '~/utils'
 import Action from '~/ui/atom/action'
+import PlayPauseBtn from '~/ui/atom/playPauseBtn'
+import type { Props as PlayPauseBtnProps } from '~/ui/atom/playPauseBtn'
 
-export type Props = {
+export type Props = PlayPauseBtnProps & {
   className?: string
-  isPlaying?: boolean
   isLooping?: boolean
   isShuffling?: boolean
   onShuffle: () => void
   onPrev: () => void
-  onPlayPause: () => void
   onNext: () => void
   onRepeat: () => void
 }
@@ -28,9 +26,9 @@ function PlayerControls(p: Props) {
     <div className={cs(st.container, p.className)}>
       <Action
         type="button"
-        aria-label="shuffle the track list"
-        className={st.activableBtn}
-        data-is-active={Boolean(p.isShuffling)}
+        aria-label="shuffle track list"
+        className={st.toggleBtn}
+        aria-pressed={Boolean(p.isShuffling)}
         onClick={p.onShuffle}
       >
         <ShuffleIcon aria-hidden="true" />
@@ -44,32 +42,22 @@ function PlayerControls(p: Props) {
         <TrackPreviousIcon aria-hidden="true" />
       </Action>
 
-      <Action
-        type="button"
-        aria-label="play/pause"
+      <PlayPauseBtn
+        isHighlighted
         className={st.playPauseBtn}
-        onClick={p.onPlayPause}
-      >
-        {p.isPlaying ? (
-          <PauseIcon aria-hidden="true" />
-        ) : (
-          <PlayIcon aria-hidden="true" />
-        )}
-      </Action>
+        isPlaying={p.isPlaying}
+        onPlayPause={p.onPlayPause}
+      />
 
-      <Action
-        type="button"
-        aria-label="play next track"
-        onClick={p.onNext}
-      >
+      <Action type="button" aria-label="play next track" onClick={p.onNext}>
         <TrackNextIcon aria-hidden="true" />
       </Action>
 
       <Action
         type="button"
-        aria-label="repeat the current track"
-        className={st.activableBtn}
-        data-is-active={Boolean(p.isLooping)}
+        aria-label="repeat current track"
+        className={st.toggleBtn}
+        aria-pressed={Boolean(p.isLooping)}
         onClick={p.onRepeat}
       >
         <LoopIcon aria-hidden="true" />

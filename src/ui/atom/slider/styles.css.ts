@@ -6,10 +6,12 @@ export const sliderWidthVar = createVar()
 const _sliderWidthVar = createVar()
 
 const _thumbSizeVar = createVar()
+const _transition = createVar()
 
 export const root = style({
   vars: {
     [_sliderWidthVar]: fallbackVar(sliderWidthVar, '100rem'),
+    [_transition]: 'transform 200ms linear',
   },
   position: 'relative',
 
@@ -33,7 +35,7 @@ export const track = style({
   backgroundColor: vars.color.secondary.text,
 
   cursor: 'pointer',
-  transition: 'transform 250ms linear',
+  transition: _transition,
 
   [`.${root}:hover &`]: {
     transform: 'scaleY(1.3)'
@@ -60,7 +62,7 @@ export const thumb = style({
   borderRadius: '50%',
 
   cursor: 'pointer',
-  transition: 'transform 250ms linear',
+  transition: _transition,
 
   [`.${root}:hover &`]: {
     transform: 'scale(1.3)',

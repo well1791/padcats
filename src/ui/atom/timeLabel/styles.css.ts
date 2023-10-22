@@ -8,7 +8,7 @@ const _colorVar = createVar()
 
 export const container = style({
   vars: {
-    [_colorVar]: fallbackVar(colorVar, vars.color.primary.text)
+    [_colorVar]: fallbackVar(colorVar, vars.color.primary.text),
   },
   color: _colorVar,
   fontWeight: 500,

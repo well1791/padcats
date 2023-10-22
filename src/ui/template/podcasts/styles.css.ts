@@ -1,16 +1,20 @@
 import { globalStyle, style } from '@vanilla-extract/css'
 
-import { thumbnail, author, thumbnailSizeVar } from '~/ui/molecule/playerInfo/styles.css'
+import {
+  thumbnail,
+  author,
+  thumbnailSizeVar,
+} from '~/ui/molecule/playerInfo/styles.css'
 
 export const container = style({})
 
-export const infoRow = style({})
+export const playerInfo = style({})
 
-globalStyle(`${container} ${infoRow} ${thumbnail}`, {
+globalStyle(`${container} ${playerInfo} ${thumbnail}`, {
   vars: { [thumbnailSizeVar]: '45rem' },
   borderRadius: '8px',
 })
 
-globalStyle(`${container} ${infoRow} ${author}`, {
+globalStyle(`${container} ${playerInfo} ${author}`, {
   fontSize: '14rem',
 })
