@@ -14,7 +14,5 @@ globalStyle('html', {
 })
 
 globalStyle('body', {
-  maxInlineSize: vars.bp.xl,
-  marginInline: 'auto',
   fontSize: '16rem',
 })

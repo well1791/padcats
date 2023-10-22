@@ -8,7 +8,18 @@ function RootPage() {
 
   return (
     <Layout>
-      {outlet || <Podcasts data={{ podcasts: [] }} />}
+      {outlet || <Podcasts data={{ podcasts: [{
+          id: 'asd',
+          trackNumber: 0,
+          title: 'How to start a podcast',
+          author: 'Ken Adams',
+          description: "Discovering your true passion is an art you don't have",
+          releasedAt: new Date(),
+          img: {
+            src: '',
+            alt: '',
+          }
+      }] }} />}
     </Layout>
   );
 }

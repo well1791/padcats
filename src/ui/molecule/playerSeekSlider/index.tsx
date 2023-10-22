@@ -1,4 +1,5 @@
 import * as st from './styles.css'
+import { cs } from '~/utils'
 import Slider from '~/ui/atom/slider'
 import TimeLabel from '~/ui/atom/timeLabel'
 import type { Props as TimeLabelProps } from '~/ui/atom/timeLabel'
@@ -12,6 +13,7 @@ export type Data = {
 }
 
 export type Props = {
+  className?: string
   data: Data
   onSeekChange: SliderProps['onValueChange']
   onSeekCommit: SliderProps['onValueCommit']
@@ -32,10 +34,9 @@ function PlayerSeekSlider({ data: d, ...p }: Props) {
   const remainingTime = secondsToTime(totalSeconds - d.seekValue)
 
   return (
-    <div className={st.container}>
+    <div className={cs(st.container, p.className)}>
       <TimeLabel data={d} />
       <Slider
-        className={st.slider}
         data={{ max: totalSeconds, value: d.seekValue }}
         onValueChange={p.onSeekChange}
         onValueCommit={p.onSeekCommit}

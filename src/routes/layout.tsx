@@ -26,13 +26,14 @@ function Layout({ ...p }: Props) {
 
   return (
     <>
-      <Header showBackLink={Boolean(podcastId)} />
+      <Header className={st.header} showBackLink={Boolean(podcastId)} />
 
       <main className={st.container}>
         {p.children}
       </main>
 
       <Footer
+        className={st.footer}
         player={{
           info: { data: podcastInfo },
           controls: {

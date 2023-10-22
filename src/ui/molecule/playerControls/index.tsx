@@ -8,9 +8,11 @@ import {
 } from '@radix-ui/react-icons'
 
 import * as st from './styles.css'
+import { cs } from '~/utils'
 import Action from '~/ui/atom/action'
 
 export type Props = {
+  className?: string
   isPlaying?: boolean
   isLooping?: boolean
   isShuffling?: boolean
@@ -23,7 +25,7 @@ export type Props = {
 
 function PlayerControls(p: Props) {
   return (
-    <div className={st.container}>
+    <div className={cs(st.container, p.className)}>
       <Action
         type="button"
         aria-label="shuffle the track list"

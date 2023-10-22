@@ -26,7 +26,7 @@ function PlayerInfo({ data: d, ...p }: Props) {
           <VisuallyHidden>title: </VisuallyHidden>
           {d.title}
         </p>
-        <p className={cs(st.description, st.title)}>
+        <p className={st.author}>
           <VisuallyHidden>author: </VisuallyHidden>
           {d.author}
         </p>

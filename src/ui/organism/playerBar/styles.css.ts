@@ -1,16 +1,13 @@
 import { style } from '@vanilla-extract/css'
 
-import { fromBp } from '~/theme/utils'
+import { sliderWidthVar } from '~/ui/atom/slider/styles.css'
+import { fluidUnit } from '~/theme'
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gap: '25rem',
-
-  '@media': {
-    [fromBp('xl')]: { gap: '59rem' },
-  },
+  gap: fluidUnit('25rem', ['xl', '59rem']),
 })
 
 export const playerInfo = style({
@@ -21,9 +18,21 @@ export const playerParts = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
-  gap: '30rem',
+  gap: fluidUnit('30rem', ['xl', '50rem']),
+  flexGrow: 1,
+  maxInlineSize: 'calc(50% + 150rem)',
+})
 
-  '@media': {
-    [fromBp('xl')]: { gap: '50rem' },
+export const playerSeeker = style({
+  vars: {
+    [sliderWidthVar]: '100%',
+  },
+
+  flexGrow: 1,
+})
+
+export const playerVolume = style({
+  vars: {
+    [sliderWidthVar]: fluidUnit('70rem', ['xl', '100rem']),
   },
 })

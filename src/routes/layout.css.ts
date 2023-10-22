@@ -1,37 +1,29 @@
-import { createVar, style, globalStyle } from '@vanilla-extract/css';
-import type { StyleRule } from '@vanilla-extract/css';
+import { createVar, style, globalStyle } from '@vanilla-extract/css'
 
-import { container as searchLabel } from '~/ui/molecule/searchBox/styles.css'
 import { container as action } from '~/ui/atom/action/styles.css'
-import { container as header } from '~/ui/organism/header/styles.css'
-import { container as footer } from '~/ui/organism/footer/styles.css'
 import { vars } from '~/theme'
 import { cc } from '~/utils'
 
-const _iconSize = createVar()
+const _iconSizeVar = createVar()
 
-const baseContainer: StyleRule = {
+export const container = style({
   maxInlineSize: vars.size.prose,
   marginInline: 'auto',
-}
+})
 
-const iconSizing: StyleRule = {
-  vars: { [_iconSize]: '24rem' },
+export const header = style([container])
 
-  width: _iconSize,
-  height: _iconSize,
-}
-
-export const container = style(baseContainer)
-
-globalStyle(`${header}`, baseContainer)
-globalStyle(cc(
-  `${header} ${action} > svg`,
-  `${header} ${searchLabel} > svg`
-), iconSizing)
-
-globalStyle(`${footer}`, {
+export const footer = style({
   position: 'fixed',
   insetBlockEnd: 0,
 })
-globalStyle(`${footer} ${action} > svg`, iconSizing)
+
+globalStyle(cc(
+  `${header} svg`,
+  `${footer} ${action} > svg`,
+), {
+  vars: { [_iconSizeVar]: '24rem' },
+
+  width: _iconSizeVar,
+  height: _iconSizeVar,
+})

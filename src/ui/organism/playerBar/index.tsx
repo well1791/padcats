@@ -23,8 +23,14 @@ function PlayerBar(p: Props) {
       <PlayerInfo className={st.playerInfo} {...p.info} />
       <section className={st.playerParts} aria-label="media player controls">
         <PlayerControls {...p.controls} />
-        <PlayerSeekSlider {...p.seekSlider} />
-        <PlayerVolumeSlider {...p.volumeSlider} />
+        <PlayerSeekSlider
+          {...p.seekSlider}
+          className={cs(st.playerSeeker, p.seekSlider.className)}
+          />
+        <PlayerVolumeSlider
+          {...p.volumeSlider}
+          className={cs(st.playerVolume, p.volumeSlider.className)}
+        />
       </section>
     </div>
   )

@@ -2,21 +2,21 @@ import { style, createVar, fallbackVar } from '@vanilla-extract/css'
 
 import { vars } from '~/theme'
 
-export const sliderWidth = createVar()
-const _sliderWidth = createVar()
+export const sliderWidthVar = createVar()
+const _sliderWidthVar = createVar()
 
-const _thumbSize = createVar()
+const _thumbSizeVar = createVar()
 
 export const root = style({
   vars: {
-    [_sliderWidth]: fallbackVar(sliderWidth, '200rem'),
+    [_sliderWidthVar]: fallbackVar(sliderWidthVar, '100rem'),
   },
   position: 'relative',
 
   display: 'flex',
   alignItems: 'center',
 
-  inlineSize: _sliderWidth,
+  inlineSize: _sliderWidthVar,
   blockSize: '5rem',
 
   userSelect: 'none',
@@ -50,12 +50,12 @@ export const range = style({
 
 export const thumb = style({
   vars: {
-    [_thumbSize]: '10rem',
+    [_thumbSizeVar]: '10rem',
   },
 
   display: 'block',
-  width: _thumbSize,
-  height: _thumbSize,
+  width: _thumbSizeVar,
+  height: _thumbSizeVar,
   backgroundColor: vars.color.primary.text,
   borderRadius: '50%',
 

@@ -18,17 +18,11 @@ export const tokens = {
     },
   },
   size: {
-    prose: '832rem',
+    prose: '65ch',
   },
   bp: {
-    sm: '1024rem',
-    md: '1268rem',
+    lg: '1280rem',
     xl: '1512rem',
-  },
-  _bp: {
-    sm: '1024px',
-    md: '1268px',
-    xl: '1512px',
   },
   font: {
     primary: '"Quicksand Book", sans-serif',

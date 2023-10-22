@@ -9,5 +9,3 @@ export const cx = (separator: string) =>
 
 export const cs = cx(' ')
 export const cc = cx(', ')
-
-// export const cc =

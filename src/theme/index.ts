@@ -4,3 +4,4 @@ import './elements.css'
 
 export * from './theme.css'
 export * from './tokens'
+export * from './utils'

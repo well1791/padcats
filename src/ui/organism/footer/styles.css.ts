@@ -8,5 +8,7 @@ export const container = style({
 })
 
 export const playerBar = style({
+  maxInlineSize: vars.bp.xl,
+  marginInline: 'auto',
   paddingInlineEnd: '30rem',
 })

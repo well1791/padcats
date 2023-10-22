@@ -6,6 +6,7 @@ import {
 } from '@radix-ui/react-icons'
 
 import * as st from './styles.css'
+import { cs } from '~/utils'
 import Action from '~/ui/atom/action'
 import Slider from '~/ui/atom/slider'
 import type { Props as SliderProps } from '~/ui/atom/slider'
@@ -15,6 +16,7 @@ export type Data = {
 }
 
 export type Props = {
+  className?: string
   data: Data
   onVolumeChange: SliderProps['onValueChange']
   onVolumeMuteUnmute: () => void
@@ -22,7 +24,7 @@ export type Props = {
 
 function PlayerVolumeSlider({ data: d, ...p }: Props) {
   return (
-    <div className={st.container}>
+    <div className={cs(st.container, p.className)}>
       <Action
         type="button"
         aria-label="control volume mute/unmute"
@@ -40,7 +42,6 @@ function PlayerVolumeSlider({ data: d, ...p }: Props) {
       </Action>
 
       <Slider
-        className={st.slider}
         data={{ max: 100, value: d.volume }}
         onValueChange={p.onVolumeChange}
       />

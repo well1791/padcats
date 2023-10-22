@@ -1,9 +1,14 @@
 import tokens from './tokens'
 
-type Bp = keyof typeof tokens._bp
+type Breakpoint = keyof typeof tokens.bp
 
-export const fromBp = (bp: Bp) => `screen and (min-width: ${tokens._bp[bp]})`
+const isBp = (bp: string): bp is Breakpoint => bp in tokens.bp
 
-export const fromBpVars = (bp: Bp, vars: Record<string, string>) => ({
-  [fromBp(bp)]: { vars },
-})
+const unitCond = (bp: Breakpoint | string) =>
+  `(100vw - ${isBp(bp) ? tokens.bp[bp] : bp} + 1rem) * 1000`
+
+// taken from: https://css-tricks.com/responsive-layouts-fewer-media-queries/#aa-more-tricks
+export const fluidUnit = (
+  init: string,
+  ...bps: Array<[Breakpoint, string]>
+) => bps.reduce((z, [bp, val]) => `clamp(${z}, ${unitCond(bp)}, ${val})`, init)

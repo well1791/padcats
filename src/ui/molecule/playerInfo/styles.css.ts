@@ -1,9 +1,9 @@
-import { style, createVar } from '@vanilla-extract/css'
+import { style, createVar, fallbackVar } from '@vanilla-extract/css'
 
-import { vars } from '~/theme'
-import { fromBpVars } from '~/theme/utils'
+import { vars, fluidUnit } from '~/theme'
 
-const _thumbnailSize = createVar()
+export const thumbnailSizeVar = createVar()
+const _thumbnailSizeVar = createVar()
 
 export const container = style({
   display: 'flex',
@@ -12,19 +12,22 @@ export const container = style({
 })
 
 export const thumbnail = style({
-  vars: { [_thumbnailSize]: '100rem' },
+  vars: {
+    [_thumbnailSizeVar]: fallbackVar(
+      thumbnailSizeVar,
+      fluidUnit('100rem', ['xl', '110rem'])
+    ),
+  },
 
-  width: _thumbnailSize,
-  height: _thumbnailSize,
+  width: _thumbnailSizeVar,
+  height: _thumbnailSizeVar,
   backgroundColor: 'red',
-
-  '@media': fromBpVars('xl', { [_thumbnailSize]: '110rem' }),
 })
 
 export const title = style({
   fontWeight: 500,
 })
 
-export const description = style({
+export const author = style([title, {
   color: vars.color.secondary.text,
-})
+}])
