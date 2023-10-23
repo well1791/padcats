@@ -14,11 +14,23 @@ function RootPage() {
           trackNumber: 0,
           title: 'How to start a podcast',
           author: 'Ken Adams',
-          description: "Discovering your true passion is an art you don't have",
-          releasedAt: new Date(),
+          description: "Discovering your true passion is an art you don't have asdlkj skdjjsaod ijsa diojoaisjd oijd doijasd oiajsd oiasjd aksdl kasjd lk j akasdlad jasldkj",
+          releasedAt: new Date(2023, 5, 12),
           img: {
-            src: '',
-            alt: '',
+            src: 'asd',
+            alt: 'dsa',
+          }
+        },
+        'adfd': {
+          id: 'aghsd',
+          trackNumber: 0,
+          title: 'How to start a podcast with people that dont know how to start a podcast with people that start a podcast',
+          author: 'Ken Adams',
+          description: "Discovering your true passion is an art you don't have asdlkj skdjjsaod ijsa diojoaisjd oijd doijasd oiajsd oiasjd aksdl kasjd lk j akasdlad jasldkj",
+          releasedAt: new Date(2021, 2, 1),
+          img: {
+            src: 'asd',
+            alt: 'dsa',
           }
         },
       }}}

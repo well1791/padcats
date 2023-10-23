@@ -22,7 +22,7 @@ function PlayerInfo({ data: d, ...p }: Props) {
     <article className={cs(st.container, p.className)}>
       <img className={st.thumbnail} src={d.img.src} alt={d.img.alt} />
       <div>
-        <p className={st.title}>
+        <p className={st.title} title={d.title}>
           <VisuallyHidden>title: </VisuallyHidden>
           {d.title}
         </p>

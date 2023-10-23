@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
+import { titleMaxWidthVar } from '~/ui/molecule/playerInfo/styles.css'
 import { sliderWidthVar } from '~/ui/atom/slider/styles.css'
 import { fluidUnit } from '~/theme'
 
@@ -11,6 +12,10 @@ export const container = style({
 })
 
 export const playerInfo = style({
+  vars: {
+    [titleMaxWidthVar]: '277rem',
+  },
+
   maxInlineSize: '45%',
 })
 

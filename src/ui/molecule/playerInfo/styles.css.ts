@@ -1,30 +1,33 @@
 import { style, createVar, fallbackVar } from '@vanilla-extract/css'
 
-import { vars, fluidUnit } from '~/theme'
+import { vars } from '~/theme'
 
-export const thumbnailSizeVar = createVar()
-const _thumbnailSizeVar = createVar()
+export const titleMaxWidthVar = createVar()
+const _titleMaxWidthVar = createVar()
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
   gap: '20rem',
+
+  height: '100%',
 })
 
 export const thumbnail = style({
-  vars: {
-    [_thumbnailSizeVar]: fallbackVar(
-      thumbnailSizeVar,
-      fluidUnit('100rem', ['xl', '110rem'])
-    ),
-  },
-
-  width: _thumbnailSizeVar,
-  height: _thumbnailSizeVar,
-  backgroundColor: 'red',
+  height: '100%',
+  aspectRatio: '1 / 1',
+  backgroundColor: 'red', // TODO: REMOVE
 })
 
 export const title = style({
+  vars: {
+    [_titleMaxWidthVar]: fallbackVar(titleMaxWidthVar, '200rem'),
+  },
+
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  maxWidth: _titleMaxWidthVar,
   fontWeight: 500,
 })
 

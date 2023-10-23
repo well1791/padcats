@@ -60,6 +60,7 @@ function Layout({ ...p }: Props) {
           },
         }}
       />
+      <div className={st.footerBackdrop}></div>
     </>
   )
 }

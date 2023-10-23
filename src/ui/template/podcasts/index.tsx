@@ -1,4 +1,5 @@
-import { useState } from 'react'
+// TODO: segregate code into lower level components
+import { formatDistanceToNow } from 'date-fns'
 
 import * as st from './styles.css'
 import { cs } from '~/utils'
@@ -22,7 +23,7 @@ type Podcast = {
 
 export type Data = {
   podcasts: Record<PodcastId, Podcast>
-  playingId?: PodcastId
+  playingPodcastId?: PodcastId
 }
 
 export type Props = {
@@ -32,10 +33,47 @@ export type Props = {
 }
 
 function Podcasts({ data: d, ...p }: Props) {
+  const columns = [
+    { title: '#' },
+    { title: 'Name' },
+    { title: 'Description' },
+    { title: 'Released' },
+  ]
 
   return (
-    <div className={cs(st.container, p.className)}>
-    </div>
+    <table className={cs(st.table, p.className)}>
+      <thead>
+        <tr>
+          {columns.map((col) => (
+            <th key={`header-${col.title}`} className={st.th}>
+              {col.title}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {Object.values(d.podcasts).map((podcast) => (
+          <tr key={podcast.id}>
+            <td className={st.colPlayPauseBtn}>
+              <PlayPauseBtn
+                isPlaying={podcast.id === d.playingPodcastId}
+                isHighlighted={podcast.id === d.playingPodcastId}
+                onPlayPause={() => {}}
+              />
+            </td>
+            <td className={st.colPlayerInfo}>
+              <PlayerInfo data={podcast} />
+            </td>
+            <td className={st.colDescription} title={podcast.description}>
+              {podcast.description}
+            </td>
+            <td className={st.colReleasedAt}>
+              {formatDistanceToNow(podcast.releasedAt)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   )
 }
 
