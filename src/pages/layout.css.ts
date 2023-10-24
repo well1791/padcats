@@ -1,7 +1,5 @@
 import { createVar, style, globalStyle } from '@vanilla-extract/css'
 
-// import { defaultThumbnailSizeVar } from '~/ui/molecule/playerInfo/styles.css'
-import { container as action } from '~/ui/atom/action/styles.css'
 import { vars, fluidUnit } from '~/theme'
 import { cc } from '~/utils'
 
@@ -27,10 +25,7 @@ export const footerBackdrop = style({
   height: `calc(${footerHeight} + 50rem)`,
 })
 
-globalStyle(cc(
-  `${header} svg`,
-  `${footer} ${action} > svg`,
-), {
+globalStyle(cc(`${header} svg`, `${footer} svg`), {
   vars: { [_iconSizeVar]: '24rem' },
 
   width: _iconSizeVar,

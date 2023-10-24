@@ -1,8 +1,8 @@
 import { CaretLeftIcon } from '@radix-ui/react-icons'
+import { Link } from 'react-router-dom'
 
 import * as st from './styles.css'
 import { cs } from '~/utils'
-import Action from '~/ui/atom/action'
 import SearchBox, { type Props as SearchBoxProps } from '~/ui/molecule/searchBox'
 
 export type Props = {
@@ -15,13 +15,13 @@ function Header(p: Props) {
   return (
     <header className={cs(st.container, p.className)}>
       {p.showBackLink && (
-        <Action
+        <Link
           to="/"
           className={st.backLink}
           aria-label="go to the main page"
         >
           <CaretLeftIcon aria-hidden="true" />
-        </Action>
+        </Link>
       )}
       <SearchBox {...p.searchBoxProps} />
     </header>

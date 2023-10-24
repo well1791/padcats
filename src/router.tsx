@@ -1,14 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 
-
-import RootPage from '~/routes'
-import PodcastPage from '~/routes/[podcastId]/index'
+import PodcastsPage from '~/pages/podcasts'
+import PodcastPage from '~/pages/podcast'
 
 const routes: Array<RouteObject> = [
   {
     path: '/',
-    element: <RootPage />,
+    element: <PodcastsPage />,
     children: [
       {
         path: ':podcastId',

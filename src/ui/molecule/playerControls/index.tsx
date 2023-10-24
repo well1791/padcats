@@ -7,7 +7,6 @@ import {
 
 import * as st from './styles.css'
 import { cs } from '~/utils'
-import Action from '~/ui/atom/action'
 import PlayPauseBtn from '~/ui/atom/playPauseBtn'
 import type { Props as PlayPauseBtnProps } from '~/ui/atom/playPauseBtn'
 
@@ -24,7 +23,7 @@ export type Props = PlayPauseBtnProps & {
 function PlayerControls(p: Props) {
   return (
     <div className={cs(st.container, p.className)}>
-      <Action
+      <button
         type="button"
         aria-label="shuffle track list"
         className={st.toggleBtn}
@@ -32,15 +31,15 @@ function PlayerControls(p: Props) {
         onClick={p.onShuffle}
       >
         <ShuffleIcon aria-hidden="true" />
-      </Action>
+      </button>
 
-      <Action
+      <button
         type="button"
         aria-label="play previous track"
         onClick={p.onPrev}
       >
         <TrackPreviousIcon aria-hidden="true" />
-      </Action>
+      </button>
 
       <PlayPauseBtn
         isHighlighted
@@ -49,11 +48,11 @@ function PlayerControls(p: Props) {
         onPlayPause={p.onPlayPause}
       />
 
-      <Action type="button" aria-label="play next track" onClick={p.onNext}>
+      <button type="button" aria-label="play next track" onClick={p.onNext}>
         <TrackNextIcon aria-hidden="true" />
-      </Action>
+      </button>
 
-      <Action
+      <button
         type="button"
         aria-label="repeat current track"
         className={st.toggleBtn}
@@ -61,7 +60,7 @@ function PlayerControls(p: Props) {
         onClick={p.onRepeat}
       >
         <LoopIcon aria-hidden="true" />
-      </Action>
+      </button>
     </div>
   )
 }

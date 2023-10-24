@@ -7,7 +7,6 @@ import {
 
 import * as st from './styles.css'
 import { cs } from '~/utils'
-import Action from '~/ui/atom/action'
 import Slider from '~/ui/atom/slider'
 import type { Props as SliderProps } from '~/ui/atom/slider'
 
@@ -25,10 +24,11 @@ export type Props = {
 function PlayerVolumeSlider({ data: d, ...p }: Props) {
   return (
     <div className={cs(st.container, p.className)}>
-      <Action
+      <button
         type="button"
         aria-label="control volume mute/unmute"
         onClick={p.onVolumeMuteUnmute}
+        aria-pressed={d.volume < 1}
       >
         {d.volume < 1 ? (
           <SpeakerOffIcon aria-hidden="true" />
@@ -39,7 +39,7 @@ function PlayerVolumeSlider({ data: d, ...p }: Props) {
         ) : (
           <SpeakerLoudIcon aria-hidden="true" />
         )}
-      </Action>
+      </button>
 
       <Slider
         data={{ max: 100, value: d.volume }}

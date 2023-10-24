@@ -1,7 +1,5 @@
 import { PlayIcon, PauseIcon } from '@radix-ui/react-icons'
 
-import Action from '~/ui/atom/action'
-
 import * as st from './styles.css'
 import { cs } from '~/utils'
 
@@ -14,7 +12,7 @@ export type Props = {
 
 function PlayPauseBtn(p: Props) {
   return (
-    <Action
+    <button
       type="button"
       className={cs(st.container, p.className)}
       aria-label="play/pause"
@@ -27,7 +25,7 @@ function PlayPauseBtn(p: Props) {
       ) : (
         <PlayIcon aria-hidden="true" />
       )}
-    </Action>
+    </button>
   )
 }
 
