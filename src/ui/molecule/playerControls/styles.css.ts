@@ -1,19 +1,19 @@
 import { createVar, style } from '@vanilla-extract/css'
 
 import { btnSizeVar } from '~/ui/atom/playPauseBtn/styles.css'
-import { vars, fluidUnit } from '~/theme'
+import { vars, length } from '~/theme'
 
 const _activeMarkSizeVar = createVar()
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
-  gap: fluidUnit('13rem', ['xl', '18rem']),
+  gap: length('13rem', ['xl', '18rem']),
 })
 
 export const playPauseBtn = style({
   vars: {
-    [btnSizeVar]: fluidUnit('40rem', ['xl', '50rem']),
+    [btnSizeVar]: length('40rem', ['xl', '50rem']),
   },
 })
 

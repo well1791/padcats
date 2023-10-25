@@ -8,7 +8,7 @@ const unitCond = (bp: Breakpoint | string) =>
   `(100vw - ${isBp(bp) ? tokens.bp[bp] : bp} + 1rem) * 1000`
 
 // taken from: https://css-tricks.com/responsive-layouts-fewer-media-queries/#aa-more-tricks
-export const fluidUnit = (
+export const length = (
   init: string,
   ...bps: Array<[Breakpoint, string]>
 ) => bps.reduce((z, [bp, val]) => `clamp(${z}, ${unitCond(bp)}, ${val})`, init)

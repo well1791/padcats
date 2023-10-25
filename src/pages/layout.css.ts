@@ -1,9 +1,9 @@
 import { createVar, style, globalStyle } from '@vanilla-extract/css'
 
-import { vars, fluidUnit } from '~/theme'
+import { vars, length } from '~/theme'
 import { cc } from '~/utils'
 
-const footerHeight = fluidUnit('100rem', ['xl', '110rem'])
+const footerHeight = length('100rem', ['xl', '110rem'])
 
 const _iconSizeVar = createVar()
 

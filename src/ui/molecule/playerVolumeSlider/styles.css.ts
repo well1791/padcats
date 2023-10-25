@@ -1,9 +1,9 @@
 import { style } from '@vanilla-extract/css'
 
-import { fluidUnit } from '~/theme'
+import { length } from '~/theme'
 
 export const container = style({
   display: 'flex',
   alignItems: 'center',
-  gap: fluidUnit('5rem', ['xl', '11rem']),
+  gap: length('5rem', ['xl', '11rem']),
 })
