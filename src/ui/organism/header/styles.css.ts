@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-import { vars } from '~/theme'
+import theme from '~/theme'
 
 export const container = style({
   display: 'flex',
@@ -20,5 +20,5 @@ export const backLink = style({
   minInlineSize: '50rem',
   minBlockSize: '50rem',
   borderRadius: 15,
-  backgroundColor: vars.color.tertiary.bg,
+  backgroundColor: theme.color.tertiary.bg,
 })

@@ -1,16 +1,15 @@
 import { style, createVar, fallbackVar } from '@vanilla-extract/css'
 
-import { vars } from '~/theme'
+import * as vars from './vars.css'
+import theme from '~/theme'
 
-export const sliderWidthVar = createVar()
-const _sliderWidthVar = createVar()
-
-const _thumbSizeVar = createVar()
+const _width = createVar()
+const _thumbSize = createVar()
 const _transition = createVar()
 
 export const root = style({
   vars: {
-    [_sliderWidthVar]: fallbackVar(sliderWidthVar, '100rem'),
+    [_width]: fallbackVar(vars.width, '100rem'),
     [_transition]: 'transform 200ms linear',
   },
   position: 'relative',
@@ -18,7 +17,7 @@ export const root = style({
   display: 'flex',
   alignItems: 'center',
 
-  inlineSize: _sliderWidthVar,
+  inlineSize: _width,
   blockSize: '5rem',
 
   userSelect: 'none',
@@ -32,7 +31,7 @@ export const track = style({
 
   borderRadius: '9999px',
   height: '100%',
-  backgroundColor: vars.color.secondary.text,
+  backgroundColor: theme.color.secondary.text,
 
   cursor: 'pointer',
   transition: _transition,
@@ -52,13 +51,13 @@ export const range = style({
 
 export const thumb = style({
   vars: {
-    [_thumbSizeVar]: '10rem',
+    [_thumbSize]: '10rem',
   },
 
   display: 'block',
-  width: _thumbSizeVar,
-  height: _thumbSizeVar,
-  backgroundColor: vars.color.primary.text,
+  width: _thumbSize,
+  height: _thumbSize,
+  backgroundColor: theme.color.primary.text,
   borderRadius: '50%',
 
   cursor: 'pointer',

@@ -1,13 +1,17 @@
-import { globalStyle, style } from '@vanilla-extract/css'
+import { style } from '@vanilla-extract/css'
 import type { StyleRule } from '@vanilla-extract/css'
 
-import { thumbnail, author } from '~/ui/molecule/playerInfo/styles.css'
-import { vars } from '~/theme'
-import { cc, cs } from '~/utils'
+import { thumbnailBorder, authorFontSize } from '~/ui/molecule/playerInfo/vars.css'
+import theme from '~/theme'
+import { cs } from '~/utils'
 
-const borderLine = `1px solid ${vars.color.secondary.bg}`
+const borderLine = `1px solid ${theme.color.secondary.bg}`
 
 export const table = style({
+  vars: {
+    [thumbnailBorder]: '8px',
+    [authorFontSize]: '14px',
+  },
   borderCollapse: 'collapse',
 
   display: 'grid',
@@ -17,12 +21,17 @@ export const table = style({
   borderBlockEnd: borderLine,
 })
 
+export const displayContents = style({ display: 'contents' })
+
 const allCells: StyleRule = {
+  paddingInline: '10rem',
+
   textAlign: 'left',
 
   ':first-child': {
     textAlign: 'center',
     justifyContent: 'center',
+    paddingInline: '3.75rem',
   },
 }
 
@@ -32,7 +41,7 @@ export const th = style([allCells, {
   fontWeight: 600,
   fontSize: '14rem',
   lineHeight: '17.5rem',
-  color: vars.color.secondary.text,
+  color: theme.color.secondary.text,
 }])
 
 const tdCells: StyleRule = {
@@ -44,10 +53,14 @@ const tdCells: StyleRule = {
   borderBlockStart: borderLine,
 }
 
+// COLUMNS
+
 export const colPlayPauseBtn = style([allCells, tdCells, {}])
+
 export const colPlayerInfo = style([allCells, tdCells, {
   height: '45rem',
 }])
+
 export const colDescription = style([allCells, tdCells, {
   height: '40rem',
   overflow: 'hidden',
@@ -55,24 +68,9 @@ export const colDescription = style([allCells, tdCells, {
   textOverflow: 'ellipsis',
   WebkitLineClamp: 2,
   WebkitBoxOrient: 'vertical',
-  color: vars.color.secondary.text,
+  color: theme.color.secondary.text,
 }])
+
 export const colReleasedAt = style([allCells, tdCells, {
-  color: vars.color.secondary.text,
+  color: theme.color.secondary.text,
 }])
-
-globalStyle(`${table} ${colPlayerInfo} ${thumbnail}`, {
-  borderRadius: '8px',
-})
-
-globalStyle(`${table} ${colPlayerInfo} ${author}`, { fontSize: '14rem' })
-
-globalStyle(cc(
-  `${table} thead`,
-  `${table} tbody`,
-  `${table} tr`,
-), { display: 'contents' })
-
-globalStyle(cc(`${table} td + td`, `${table} th + th`), {
-  paddingInline: '10rem',
-})

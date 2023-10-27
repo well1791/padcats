@@ -1,31 +1,29 @@
-import { createVar, fallbackVar, globalStyle, style } from '@vanilla-extract/css'
+import { createVar, fallbackVar, style } from '@vanilla-extract/css'
 
-import { vars } from '~/theme'
+import * as vars from './vars.css'
+import theme from '~/theme'
 
-export const iconSizeVar = createVar()
-const _iconSizeVar = createVar()
-
-export const btnSizeVar = createVar()
-const _btnSizeVar = createVar()
+const _iconSize = createVar()
+const _btnSize = createVar()
 
 export const container = style({
   vars: {
-    [_btnSizeVar]: fallbackVar(btnSizeVar, '35rem'),
-    [_iconSizeVar]: fallbackVar(iconSizeVar, '16rem'),
+    [_btnSize]: fallbackVar(vars.btnSize, '35rem'),
+    [_iconSize]: fallbackVar(vars.iconSize, '16rem'),
   },
 
-  width: _btnSizeVar,
-  height: _btnSizeVar,
+  width: _btnSize,
+  height: _btnSize,
 
   selectors: {
     '&[data-is-highlighted="true"]': {
       borderRadius: '50%',
-      backgroundColor: vars.color.accent.bg,
+      backgroundColor: theme.color.accent.bg,
     },
   },
 })
 
-globalStyle(`${container} > svg`, {
-  width: _iconSizeVar,
-  height: _iconSizeVar,
+export const icon = style({
+  width: _iconSize,
+  height: _iconSize,
 })

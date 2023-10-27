@@ -1,16 +1,15 @@
 import { style, createVar, fallbackVar } from '@vanilla-extract/css'
 
-import { vars } from '~/theme'
+import * as vars from './vars.css'
+import theme from '~/theme'
 
-export const colorVar = createVar()
-
-const _colorVar = createVar()
+const _color = createVar()
 
 export const container = style({
   vars: {
-    [_colorVar]: fallbackVar(colorVar, vars.color.primary.text),
+    [_color]: fallbackVar(vars.color, theme.color.primary.text),
   },
-  color: _colorVar,
+  color: _color,
   fontWeight: 500,
   minInlineSize: '50rem',
 })

@@ -1,14 +1,14 @@
 import { style } from '@vanilla-extract/css'
 
-import { vars } from '~/theme'
+import theme from '~/theme'
 
 export const container = style({
   inlineSize: '100%',
-  backgroundColor: vars.color.tertiary.bg,
+  backgroundColor: theme.color.tertiary.bg,
 })
 
 export const playerBar = style({
-  maxInlineSize: vars.bp.xl,
+  maxInlineSize: theme.bp.xl,
   marginInline: 'auto',
   paddingInlineEnd: '30rem',
   height: '100%',

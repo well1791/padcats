@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { titleMaxWidthVar } from '~/ui/molecule/playerInfo/styles.css'
-import { sliderWidthVar } from '~/ui/atom/slider/styles.css'
+import * as playerInfoVar from '~/ui/molecule/playerInfo/vars.css'
+import * as sliderVar from '~/ui/atom/slider/vars.css'
 import { length } from '~/theme'
 
 export const container = style({
@@ -13,7 +13,7 @@ export const container = style({
 
 export const playerInfo = style({
   vars: {
-    [titleMaxWidthVar]: '277rem',
+    [playerInfoVar.titleMaxWidth]: '277rem',
   },
 
   maxInlineSize: '45%',
@@ -30,7 +30,7 @@ export const playerParts = style({
 
 export const playerSeeker = style({
   vars: {
-    [sliderWidthVar]: '100%',
+    [sliderVar.width]: '100%',
   },
 
   flexGrow: 1,
@@ -38,6 +38,6 @@ export const playerSeeker = style({
 
 export const playerVolume = style({
   vars: {
-    [sliderWidthVar]: length('70rem', ['xl', '100rem']),
+    [sliderVar.width]: length('70rem', ['xl', '100rem']),
   },
 })

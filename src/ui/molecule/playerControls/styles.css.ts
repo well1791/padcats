@@ -1,9 +1,9 @@
 import { createVar, style } from '@vanilla-extract/css'
 
-import { btnSizeVar } from '~/ui/atom/playPauseBtn/styles.css'
-import { vars, length } from '~/theme'
+import * as playPausBtnVar from '~/ui/atom/playPauseBtn/vars.css'
+import theme, { length } from '~/theme'
 
-const _activeMarkSizeVar = createVar()
+const _activeMarkSize = createVar()
 
 export const container = style({
   display: 'flex',
@@ -13,12 +13,12 @@ export const container = style({
 
 export const playPauseBtn = style({
   vars: {
-    [btnSizeVar]: length('40rem', ['xl', '50rem']),
+    [playPausBtnVar.btnSize]: length('40rem', ['xl', '50rem']),
   },
 })
 
 export const toggleBtn = style({
-  vars: { [_activeMarkSizeVar]: '3rem' },
+  vars: { [_activeMarkSize]: '3rem' },
 
   position: 'relative',
 
@@ -30,10 +30,10 @@ export const toggleBtn = style({
       top: 1,
       right: 1,
 
-      width: _activeMarkSizeVar,
-      height: _activeMarkSizeVar,
+      width: _activeMarkSize,
+      height: _activeMarkSize,
       borderRadius: '50%',
-      backgroundColor: vars.color.primary.text,
+      backgroundColor: theme.color.primary.text,
     },
   },
 })

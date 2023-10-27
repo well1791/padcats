@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { colorVar } from '~/ui/atom/timeLabel/styles.css'
-import { vars } from '~/theme'
+import * as timeLabelVar from '~/ui/atom/timeLabel/vars.css'
+import theme from '~/theme'
 
 export const container = style({
   display: 'flex',
@@ -10,5 +10,5 @@ export const container = style({
 })
 
 export const remainingTime = style({
-  vars: { [colorVar]: vars.color.secondary.text },
+  vars: { [timeLabelVar.color]: theme.color.secondary.text },
 })

@@ -21,9 +21,9 @@ function PlayPauseBtn(p: Props) {
       onClick={p.onPlayPause}
     >
       {p.isPlaying ? (
-        <PauseIcon aria-hidden="true" />
+        <PauseIcon className={st.icon} aria-hidden="true" />
       ) : (
-        <PlayIcon aria-hidden="true" />
+        <PlayIcon className={st.icon} aria-hidden="true" />
       )}
     </button>
   )

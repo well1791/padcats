@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-import { vars } from '~/theme'
+import theme from '~/theme'
 
 export const container = style({
   display: 'flex',
@@ -10,7 +10,7 @@ export const container = style({
   inlineSize: '100%',
   blockSize: 'inherit',
   paddingInline: '24rem',
-  backgroundColor: vars.color.tertiary.bg,
+  backgroundColor: theme.color.tertiary.bg,
   borderRadius: 15,
 
   ':focus-within': {
@@ -23,5 +23,5 @@ export const input = style({
   backgroundColor: 'transparent',
   outline: 'none',
 
-  color: vars.color.tertiary.text,
+  color: theme.color.tertiary.text,
 })

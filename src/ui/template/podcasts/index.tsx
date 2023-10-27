@@ -42,8 +42,8 @@ function Podcasts({ data: d, ...p }: Props) {
 
   return (
     <table className={cs(st.table, p.className)}>
-      <thead>
-        <tr>
+      <thead className={st.displayContents}>
+        <tr className={st.displayContents}>
           {columns.map((col) => (
             <th key={`header-${col.title}`} className={st.th}>
               {col.title}
@@ -51,9 +51,9 @@ function Podcasts({ data: d, ...p }: Props) {
           ))}
         </tr>
       </thead>
-      <tbody>
+      <tbody className={st.displayContents}>
         {Object.values(d.podcasts).map((podcast) => (
-          <tr key={podcast.id}>
+          <tr key={podcast.id} className={st.displayContents}>
             <td className={st.colPlayPauseBtn}>
               <PlayPauseBtn
                 isPlaying={podcast.id === d.playingPodcastId}
