@@ -8,6 +8,7 @@ import {
 import * as st from './styles.css'
 import { cs } from '~/utils'
 import PlayPauseBtn from '~/ui/atom/playPauseBtn'
+import Icon from '~/ui/atom/icon'
 import type { Props as PlayPauseBtnProps } from '~/ui/atom/playPauseBtn'
 
 export type Props = PlayPauseBtnProps & {
@@ -30,7 +31,7 @@ function PlayerControls(p: Props) {
         aria-pressed={Boolean(p.isShuffling)}
         onClick={p.onShuffle}
       >
-        <ShuffleIcon aria-hidden="true" />
+        <Icon Component={ShuffleIcon} />
       </button>
 
       <button
@@ -38,18 +39,17 @@ function PlayerControls(p: Props) {
         aria-label="play previous track"
         onClick={p.onPrev}
       >
-        <TrackPreviousIcon aria-hidden="true" />
+        <Icon Component={TrackPreviousIcon} />
       </button>
 
       <PlayPauseBtn
         isHighlighted
-        className={st.playPauseBtn}
         isPlaying={p.isPlaying}
         onPlayPause={p.onPlayPause}
       />
 
       <button type="button" aria-label="play next track" onClick={p.onNext}>
-        <TrackNextIcon aria-hidden="true" />
+        <Icon Component={TrackNextIcon} />
       </button>
 
       <button
@@ -59,7 +59,7 @@ function PlayerControls(p: Props) {
         aria-pressed={Boolean(p.isLooping)}
         onClick={p.onRepeat}
       >
-        <LoopIcon aria-hidden="true" />
+        <Icon Component={LoopIcon} />
       </button>
     </div>
   )

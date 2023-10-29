@@ -1,7 +1,8 @@
 import { style } from '@vanilla-extract/css'
 import type { StyleRule } from '@vanilla-extract/css'
 
-import { thumbnailBorder, authorFontSize } from '~/ui/molecule/playerInfo/vars.css'
+import * as iconVar from '~/ui/atom/icon/vars.css'
+import * as playerInfoVar from '~/ui/molecule/playerInfo/vars.css'
 import theme from '~/theme'
 import { cs } from '~/utils'
 
@@ -9,9 +10,11 @@ const borderLine = `1px solid ${theme.color.secondary.bg}`
 
 export const table = style({
   vars: {
-    [thumbnailBorder]: '8px',
-    [authorFontSize]: '14px',
+    [playerInfoVar.thumbnailBorder]: '8px',
+    [playerInfoVar.authorFontSize]: '14px',
+    [iconVar.iconSize]: '16rem',
   },
+
   borderCollapse: 'collapse',
 
   display: 'grid',

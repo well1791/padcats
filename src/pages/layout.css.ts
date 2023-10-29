@@ -1,11 +1,8 @@
-import { createVar, style, globalStyle } from '@vanilla-extract/css'
+import { style } from '@vanilla-extract/css'
 
 import theme, { length } from '~/theme'
-import { cc } from '~/utils'
 
 const footerHeight = length('100rem', ['xl', '110rem'])
-
-const _iconSize = createVar()
 
 export const container = style({
   maxInlineSize: theme.size.prose,
@@ -23,11 +20,4 @@ export const footer = style({
 export const footerBackdrop = style({
   width: '100%',
   height: `calc(${footerHeight} + 50rem)`,
-})
-
-globalStyle(cc(`${header} svg`, `${footer} svg`), {
-  vars: { [_iconSize]: '24rem' },
-
-  width: _iconSize,
-  height: _iconSize,
 })

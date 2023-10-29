@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import * as st from './styles.css'
 import { cs } from '~/utils'
+import Icon from '~/ui/atom/icon'
 import SearchBox, { type Props as SearchBoxProps } from '~/ui/molecule/searchBox'
 
 export type Props = {
@@ -20,7 +21,7 @@ function Header(p: Props) {
           className={st.backLink}
           aria-label="go to the main page"
         >
-          <CaretLeftIcon aria-hidden="true" />
+          <Icon Component={CaretLeftIcon} />
         </Link>
       )}
       <SearchBox {...p.searchBoxProps} />

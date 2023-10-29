@@ -8,6 +8,7 @@ import {
 import * as st from './styles.css'
 import { cs } from '~/utils'
 import Slider from '~/ui/atom/slider'
+import Icon from '~/ui/atom/icon'
 import type { Props as SliderProps } from '~/ui/atom/slider'
 
 export type Data = {
@@ -22,6 +23,10 @@ export type Props = {
 }
 
 function PlayerVolumeSlider({ data: d, ...p }: Props) {
+  const IconComponent = d.volume < 1 ? SpeakerOffIcon
+                      : d.volume < 30 ? SpeakerQuietIcon
+                      : d.volume < 70 ? SpeakerModerateIcon
+                      : SpeakerLoudIcon
   return (
     <div className={cs(st.container, p.className)}>
       <button
@@ -30,15 +35,7 @@ function PlayerVolumeSlider({ data: d, ...p }: Props) {
         onClick={p.onVolumeMuteUnmute}
         aria-pressed={d.volume < 1}
       >
-        {d.volume < 1 ? (
-          <SpeakerOffIcon aria-hidden="true" />
-        ): d.volume < 30 ? (
-          <SpeakerQuietIcon aria-hidden="true" />
-        ): d.volume < 70 ? (
-          <SpeakerModerateIcon aria-hidden="true" />
-        ) : (
-          <SpeakerLoudIcon aria-hidden="true" />
-        )}
+        <Icon Component={IconComponent} />
       </button>
 
       <Slider

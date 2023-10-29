@@ -2,6 +2,7 @@ import { PlayIcon, PauseIcon } from '@radix-ui/react-icons'
 
 import * as st from './styles.css'
 import { cs } from '~/utils'
+import Icon from '~/ui/atom/icon'
 
 export type Props = {
   className?: string
@@ -20,11 +21,7 @@ function PlayPauseBtn(p: Props) {
       data-is-highlighted={Boolean(p.isHighlighted)}
       onClick={p.onPlayPause}
     >
-      {p.isPlaying ? (
-        <PauseIcon className={st.icon} aria-hidden="true" />
-      ) : (
-        <PlayIcon className={st.icon} aria-hidden="true" />
-      )}
+      <Icon Component={p.isPlaying ? PauseIcon : PlayIcon} />
     </button>
   )
 }

@@ -6,20 +6,16 @@ import theme, { length } from '~/theme'
 const _activeMarkSize = createVar()
 
 export const container = style({
+  vars: {
+    [_activeMarkSize]: '3rem',
+    [playPausBtnVar.btnSize]: length('40rem', ['xl', '50rem']),
+  },
   display: 'flex',
   alignItems: 'center',
   gap: length('13rem', ['xl', '18rem']),
 })
 
-export const playPauseBtn = style({
-  vars: {
-    [playPausBtnVar.btnSize]: length('40rem', ['xl', '50rem']),
-  },
-})
-
 export const toggleBtn = style({
-  vars: { [_activeMarkSize]: '3rem' },
-
   position: 'relative',
 
   selectors: {

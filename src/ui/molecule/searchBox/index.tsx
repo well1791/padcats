@@ -2,6 +2,7 @@ import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
 import * as st from './styles.css'
+import Icon from '~/ui/atom/icon'
 import Input from '~/ui/atom/input'
 
 export type Props = {
@@ -17,7 +18,7 @@ function SearchBox(p: Props) {
   return (
     <label className={st.container}>
       <VisuallyHidden>Type to search podcasts</VisuallyHidden>
-      <MagnifyingGlassIcon aria-hidden="true" />
+      <Icon Component={MagnifyingGlassIcon} />
       <Input
         autoFocus={p.autoFocus}
         className={st.input}
