@@ -8,27 +8,27 @@ export type Data = {
   author: string
   img: {
     src: string
-    alt: string
+    alt?: string
   }
 }
 
 export type Props = {
-  data: Data
+  data?: Data
   className?: string
 }
 
 function PlayerInfo({ data: d, ...p }: Props) {
   return (
     <article className={cs(st.container, p.className)}>
-      <img className={st.thumbnail} src={d.img.src} alt={d.img.alt} />
+      <img className={st.thumbnail} src={d?.img.src} alt={d?.img.alt} />
       <div>
-        <p className={st.title} title={d.title}>
+        <p className={st.title} title={d?.title}>
           <VisuallyHidden>title: </VisuallyHidden>
-          {d.title}
+          {d?.title}
         </p>
         <p className={st.author}>
           <VisuallyHidden>author: </VisuallyHidden>
-          {d.author}
+          {d?.author}
         </p>
       </div>
     </article>

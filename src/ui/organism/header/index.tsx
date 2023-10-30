@@ -9,7 +9,7 @@ import SearchBox, { type Props as SearchBoxProps } from '~/ui/molecule/searchBox
 export type Props = {
   className?: string
   showBackLink?: boolean
-  searchBoxProps?: SearchBoxProps
+  searchBoxProps: SearchBoxProps
 }
 
 function Header(p: Props) {

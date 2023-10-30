@@ -5,14 +5,17 @@ import Header from '.'
 
 describe('Header content', () => {
   test('it has a "search" input text', () => {
-    render(<Header />)
+    render(<Header searchBoxProps={{ searchText: '' }} />)
     expect(screen.queryAllByLabelText('go to the main page')).toHaveLength(0)
     expect(screen.queryAllByPlaceholderText('podcast')).toHaveLength(1)
   })
 
   test('it has a back link', () => {
     const router = createMemoryRouter(
-      [{ path: '/', element: <Header showBackLink />, }],
+      [{
+        path: '/',
+        element: <Header showBackLink searchBoxProps={{ searchText: '' }}/>,
+      }],
       { initialEntries: ['/'], initialIndex: 0, },
     );
     render(<RouterProvider router={router} />)

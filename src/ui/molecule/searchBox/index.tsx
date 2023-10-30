@@ -10,6 +10,7 @@ export type Props = {
   name?: string
   placeholder?: string
   autoFocus?: boolean
+  searchText: string
   onChange?: (text: string) => void
 }
 
@@ -22,7 +23,8 @@ function SearchBox(p: Props) {
       <Input
         autoFocus={p.autoFocus}
         className={st.input}
-        name={p.name}
+        name={p.name ?? 'search-box'}
+        value={p.searchText}
         placeholder={p.placeholder ?? 'podcast'}
         onChange={(e) => p.onChange?.call(null, e.currentTarget.value)}
       />

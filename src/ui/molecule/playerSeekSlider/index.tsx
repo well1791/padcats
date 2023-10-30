@@ -8,7 +8,7 @@ import type { Props as SliderProps } from '~/ui/atom/slider'
 type Time = TimeLabelProps['data']['time']
 
 export type Data = {
-  time: Time
+  time?: Time
   seekValue: number
 }
 
@@ -28,14 +28,17 @@ const secondsToTime = (s: number): Time => {
   return { hours, minutes, seconds }
 }
 
+const timeToSeconds = ({ hours, minutes, seconds }: Time) =>
+  (hours * 60 * 60) + (minutes * 60) + seconds
+
 function PlayerSeekSlider({ data: d, ...p }: Props) {
-  const { hours, minutes, seconds } = d.time
-  const totalSeconds = (hours * 60 * 60) + (minutes * 60) + seconds
+  const time = d.time ?? { hours: 0, minutes: 0, seconds: 0 }
+  const totalSeconds = timeToSeconds(time)
   const remainingTime = secondsToTime(totalSeconds - d.seekValue)
 
   return (
     <div className={cs(st.container, p.className)}>
-      <TimeLabel data={d} />
+      <TimeLabel data={{ time }} />
       <Slider
         data={{ max: totalSeconds, value: d.seekValue }}
         onValueChange={p.onSeekChange}

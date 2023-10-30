@@ -4,13 +4,16 @@ import ReactDOM from 'react-dom/client';
 import './theme';
 import Router from './router';
 import reportWebVitals from './reportWebVitals';
+import { AppProvider } from '~/state'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Router />
+    <AppProvider>
+      <Router />
+    </AppProvider>
   </React.StrictMode>
 );
 

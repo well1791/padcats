@@ -4,29 +4,36 @@ import { useParams } from 'react-router-dom'
 import * as st from './layout.css'
 import Header from '~/ui/organism/header'
 import Footer from '~/ui/organism/footer'
-
-const time = { hours: 0, minutes: 3, seconds: 43 }
-const podcastInfo = {
-  title: 'How to make your partner talk more',
-  author: 'Ken Adams',
-  img: { src: '', alt: '' }
-}
+import { useApp } from '~/state'
 
 type Props = React.PropsWithChildren<{}>
 
 function Layout(p: Props) {
-  const { podcastId } = useParams()
-  const [isShuffling, setIsShuffling] = useState(false)
-  const [isLooping, setIsLooping] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [seekValue, setSeekValue] = useState(0)
-  const [[currentVol, mutedVol], setVolume] = useState([50, 50])
+  const params = useParams()
+  const {
+    tracksById,
+    player,
+    searchText,
+    volume: [currentVol],
+    dispatch,
+  } = useApp()
 
-  const handleSeekedValue = () => {}
+  const { currentTrackId } = player
+  const trackInfo = currentTrackId
+    ? tracksById[currentTrackId]
+    : undefined
+  const [seekValue, setSeekValue] = useState(0)
 
   return (
     <>
-      <Header className={st.header} showBackLink={Boolean(podcastId)} />
+      <Header
+        searchBoxProps={{
+          searchText,
+          onChange: (text) => dispatch('search.set', text),
+        }}
+        className={st.header}
+        showBackLink={Boolean(params.podcastId)}
+      />
 
       <main className={st.container}>
         {p.children}
@@ -35,28 +42,24 @@ function Layout(p: Props) {
       <Footer
         className={st.footer}
         player={{
-          info: { data: podcastInfo },
+          info: { data: trackInfo },
           controls: {
-            isPlaying,
-            isLooping,
-            isShuffling,
-            onShuffle: () => setIsShuffling(!isShuffling),
+            ...player,
+            onShuffle: () => dispatch('player.toggleShuffle'),
             onPrev: () => {},
-            onPlayPause: () => setIsPlaying(!isPlaying),
+            onPlayPause: () => dispatch('player.togglePlay'),
             onNext: () => {},
-            onRepeat: () => setIsLooping(!isLooping),
+            onRepeat: () => dispatch('player.toggleLoop'),
           },
           seekSlider: {
-            data: { seekValue, time },
+            data: { seekValue },
             onSeekChange: setSeekValue,
-            onSeekCommit: handleSeekedValue,
+            onSeekCommit: () => {},
           },
           volumeSlider: {
             data: { volume: currentVol },
-            onVolumeChange: (vol) => setVolume([vol, vol === 0 ? 5 : vol]),
-            onVolumeMuteUnmute: () => currentVol === 0
-              ? setVolume([mutedVol, mutedVol])
-              : setVolume([0, currentVol]),
+            onVolumeChange: (vol) => dispatch('volume.set', vol),
+            onVolumeMuteUnmute: () => dispatch('volume.toggle'),
           },
         }}
       />
