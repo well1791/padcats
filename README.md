@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+## OTRO TEXTO
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -28,30 +30,30 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Testing
 
-* [x] jest
-* [x] react-testing-library
-* [ ] playwright
+- [x] jest
+- [x] react-testing-library
+- [ ] playwright
 
 ### Config
 
-* [x] craco
+- [x] craco
 
 ### Styling
 
-* [x] vanilla-extract
+- [x] vanilla-extract
 
 ### Headless UI (a11y)
 
-* [x] radix-ui
+- [x] radix-ui
 
 ### Storage
 
-* [ ] redux-toolkit
+- [ ] redux-toolkit
 
 ### Data fetching and caching
 
-* [ ] rtk-query
+- [ ] rtk-query
 
 ### Date
 
-* [x] date-fns
+- [x] date-fns
